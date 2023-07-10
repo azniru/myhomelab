@@ -1,0 +1,45 @@
+## How to install macOS in Virtual Box
+## Source: https://i12bretro.github.io/tutorials/0629.html
+## ISO available at - https://archive.org/download/macos-collection/Public%20Betas/macOS%2012%20%28Monterey%29/Monterey%2012.4%20v17.4.04.iso
+```
+cd "%programfiles%\Oracle\VirtualBox\"
+VBoxManage.exe modifyvm "Mac OS 12" --cpuid-set 00000001 000106e5 00100800 0098e3fd bfebfbff
+VBoxManage setextradata "Mac OS 12" "VBoxInternal/Devices/efi/0/Config/DmiSystemProduct" "MacBookPro15,1"
+VBoxManage setextradata "Mac OS 12" "VBoxInternal/Devices/efi/0/Config/DmiSystemVersion" "1.0"
+VBoxManage setextradata "Mac OS 12" "VBoxInternal/Devices/efi/0/Config/DmiBoardProduct" "Mac-551B86E5744E2388"
+VBoxManage setextradata "Mac OS 12" "VBoxInternal/Devices/smc/0/Config/DeviceKey" "ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
+VBoxManage setextradata "Mac OS 12" "VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC" 1
+VBoxManage setextradata "Mac OS 12" "VBoxInternal/TM/TSCMode" "RealTSCOffset"
+```
+## If running AMD 
+```
+VBoxManage modifyvm "Mac OS 12" --cpu-profile "Intel Core i7-6700K"
+```
+## Steps to Install
+```
+After a long initialization sequence the MAC OS Setup should start
+Select a language > Click the arrow
+Select Disk Utility
+Select the VBOX HARDDISK > Click Erase
+Name the drive OS12 > Set the Format to APFS > Click Erase
+Click Done > Close Disk Utility
+Click Install macOS Monterey
+Click Continue > Click Agree > Click Agree again
+Select the OS12 disk > Click Install
+Wait while Mac OS installs files, the VM will reboot several times
+Select your Country > Click Continue
+Confirm your languages and keyboard layout > Click Continue
+Click Not Now on the Accessibility screen
+Click Continue on the Data & Privacy screen
+Select Not Now on the Migration Assistant screen
+Select Set Up Later and then Skip on the Apple ID screen
+Click Agree > Agree again
+Enter a name, user name, password > Click Continue
+Click Continue > Select Use or Don't Use for Location Services
+Pick a timezone > Click Continue
+Uncheck Share Mac Analytics with Apple > Click Continue
+Click Set Up Later on the Screen Time screen
+Uncheck the Enable Ask Siri box > Click Continue
+Pick a theme > Click Continue
+Welcome to MacOS 12 Monterey
+```
